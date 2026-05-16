@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invierta en San Luis | El Motor Productivo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a1628;
+            --blue: #003366;
+            --teal: #006d6d;
+            --gold: #c9840a;
+            --gold-light: #f0a32e;
+            --cream: #f9f5ef;
+            --white: #ffffff;
+            --text: #1a1a2e;
+            --text-muted: #4a5568;
+            --border: rgba(0,51,102,0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 18px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(10, 22, 40, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--white);
+            letter-spacing: 0.02em;
+        }
+
+        .nav-logo span { color: var(--gold-light); }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--gold-light); }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--white) !important;
+            padding: 8px 20px;
+            border-radius: 4px;
+            transition: background 0.2s !important;
+        }
+
+        .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--navy);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse 80% 60% at 70% 50%, rgba(0,109,109,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 80% at 20% 80%, rgba(0,51,102,0.4) 0%, transparent 60%),
+                linear-gradient(135deg, #0a1628 0%, #001a33 50%, #0a2020 100%);
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .hero-accent {
+            position: absolute;
+            right: -100px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 700px;
+            height: 700px;
+            border: 1px solid rgba(201,132,10,0.15);
+            border-radius: 50%;
+        }
+
+        .hero-accent::before {
+            content: '';
+            position: absolute;
+            inset: 40px;
+            border: 1px solid rgba(201,132,10,0.1);
+            border-radius: 50%;
+        }
+
+        .hero-accent::after {
+            content: '';
+            position: absolute;
+            inset: 80px;
+            border: 1px solid rgba(201,132,10,0.08);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 120px 40px 80px;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201,132,10,0.15);
+            border: 1px solid rgba(201,132,10,0.3);
+            color: var(--gold-light);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            animation: fadeUp 0.8s ease both;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: var(--gold-light);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.7); }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.05;
+            margin-bottom: 28px;
+            max-width: 700px;
+            animation: fadeUp 0.8s 0.1s ease both;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--gold-light);
+            position: relative;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.65);
+            max-width: 560px;
+            line-height: 1.75;
+            margin-bottom: 44px;
+            font-weight: 300;
+            animation: fadeUp 0.8s 0.2s ease both;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeUp 0.8s 0.3s ease both;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--white);
+            padding: 16px 36px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: all 0.3s;
+            border: 2px solid var(--gold);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+            color: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201,132,10,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 16px 36px;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border: 2px solid rgba(255,255,255,0.25);
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(255,255,255,0.6);
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 64px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            animation: fadeUp 0.8s 0.4s ease both;
+        }
+
+        .stat-item { }
+
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1;
+        }
+
+        .stat-num span { color: var(--gold-light); }
+
+        .stat-label {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.45);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* SECTION STYLES */
+        .section {
+            padding: 100px 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--teal);
+            border-left: 3px solid var(--teal);
+            padding-left: 12px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .section-lead {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            line-height: 1.75;
+            font-weight: 300;
+        }
+
+        /* WHY SECTION */
+        .why-section { background: var(--cream); }
+
+        .why-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .why-header .section-label { margin: 0 auto 16px; }
+
+        .why-header .section-lead {
+            margin: 0 auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 36px 32px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--teal), var(--blue));
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 48px rgba(0,51,102,0.1);
+            border-color: rgba(0,109,109,0.2);
+        }
+
+        .card-icon {
+            width: 52px; height: 52px;
+            background: linear-gradient(135deg, rgba(0,109,109,0.1), rgba(0,51,102,0.08));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* ZAL SECTION */
+        .zal-section { background: var(--white); }
+
+        .zal-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .zal-visual {
+            position: relative;
+        }
+
+        .zal-box {
+            background: linear-gradient(135deg, var(--navy), var(--teal));
+            border-radius: 12px;
+            padding: 48px;
+            color: var(--white);
+        }
+
+        .zal-box-label {
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .zal-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            color: var(--white);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .zal-box p {
+            color: rgba(255,255,255,0.65);
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .zal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 28px;
+        }
+
+        .zal-tag {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.8);
+            padding: 5px 14px;
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 500;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 32px;
+        }
+
+        .feature-list li {
+            display: flex;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .feature-list li:last-child { border-bottom: none; }
+
+        .feature-icon {
+            width: 40px; height: 40px;
+            min-width: 40px;
+            background: linear-gradient(135deg, rgba(0,109,109,0.1), rgba(0,51,102,0.06));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .feature-content strong {
+            display: block;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        .feature-content span {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        /* TECH SECTION */
+        .tech-section { background: var(--navy); }
+
+        .tech-section .section-label { color: var(--gold-light); border-color: var(--gold-light); }
+        .tech-section .section-title { color: var(--white); }
+        .tech-section .section-lead { color: rgba(255,255,255,0.55); }
+
+        .tech-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .tech-list {
+            list-style: none;
+            margin-top: 40px;
+        }
+
+        .tech-list li {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .tech-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: rgba(201,132,10,0.2);
+            line-height: 1;
+            min-width: 40px;
+        }
+
+        .tech-content strong {
+            display: block;
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .tech-content p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.88rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .tech-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .tech-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+
+        .tech-card:hover {
+            background: rgba(255,255,255,0.07);
+            border-color: rgba(201,132,10,0.2);
+        }
+
+        .tech-card-icon { font-size: 1.6rem; margin-bottom: 12px; }
+
+        .tech-card h4 {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+
+        .tech-card p {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8rem;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        /* INCENTIVES */
+        .incentives-section { background: var(--cream); }
+
+        .incentives-header { margin-bottom: 56px; }
+
+        .incentives-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .incentive-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 36px;
+            border: 1px solid var(--border);
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .incentive-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0,51,102,0.08);
+        }
+
+        .incentive-card.featured {
+            background: linear-gradient(135deg, var(--blue), var(--teal));
+            border: none;
+            color: var(--white);
+        }
+
+        .incentive-card.featured h3,
+        .incentive-card.featured p { color: rgba(255,255,255,0.9); }
+
+        .incentive-card.featured strong { color: var(--white); }
+
+        .incentive-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .incentive-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .incentive-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* CONTACT */
+        .contact-section { background: var(--white); }
+
+        .contact-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        .contact-info-card {
+            background: var(--navy);
+            border-radius: 12px;
+            padding: 48px;
+            color: var(--white);
+        }
+
+        .contact-info-card .section-label { color: var(--gold-light); border-color: var(--gold-light); }
+        .contact-info-card .section-title { color: var(--white); font-size: 1.8rem; }
+
+        .contact-info-card p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.92rem;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .contact-detail {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .contact-detail-icon {
+            width: 36px; height: 36px;
+            min-width: 36px;
+            background: rgba(201,132,10,0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .contact-detail-text strong {
+            display: block;
+            color: rgba(255,255,255,0.85);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .contact-detail-text span {
+            color: rgba(255,255,255,0.45);
+            font-size: 0.82rem;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        .contact-detail-text a {
+            color: #add8e6;
+            text-decoration: none;
+            font-size: 0.82rem;
+        }
+
+        .contact-links { }
+
+        .contact-links-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .contact-links-sub {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .link-item:last-child { border-bottom: none; }
+
+        .link-item:hover { padding-left: 6px; }
+
+        .link-arrow {
+            width: 32px; height: 32px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-left: auto;
+            color: var(--teal);
+            transition: all 0.2s;
+        }
+
+        .link-item:hover .link-arrow {
+            background: var(--teal);
+            color: var(--white);
+            border-color: var(--teal);
+        }
+
+        .link-icon {
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, rgba(0,109,109,0.1), rgba(0,51,102,0.06));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .link-text strong {
+            display: block;
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .link-text span {
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            font-weight: 300;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--navy);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 32px 40px;
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--white);
+        }
+
+        .footer-logo span { color: var(--gold-light); }
+
+        footer p {
+            color: rgba(255,255,255,0.3);
+            font-size: 0.78rem;
+            font-weight: 300;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            nav { padding: 14px 20px; }
+            .nav-links { display: none; }
+            .hero-content { padding: 100px 20px 60px; }
+            .hero-stats { gap: 28px; flex-wrap: wrap; }
+            .container { padding: 0 20px; }
+            .section { padding: 64px 0; }
+            .zal-inner, .tech-inner, .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+            .incentives-grid { grid-template-columns: 1fr; }
+            .tech-cards { grid-template-columns: 1fr 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .tech-cards { grid-template-columns: 1fr; }
+            .hero-actions { flex-direction: column; }
+            .btn-primary, .btn-secondary { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-logo">San Luis <span>Inversiones</span></div>
+        <ul class="nav-links">
+            <li><a href="#por-que">Ventajas</a></li>
+            <li><a href="#zal">Logística</a></li>
+            <li><a href="#tecnologia">Tecnología</a></li>
+            <li><a href="#incentivos">Incentivos</a></li>
+            <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-accent"></div>
+        <div class="hero-content">
+            <div class="hero-badge">El Motor Productivo del Centro</div>
+            <h1>Invierta en <em>San Luis</em> y expanda sus horizontes</h1>
+            <p class="hero-sub">Conectividad global, infraestructura de vanguardia y un ecosistema de innovación que posicionan a San Luis como el destino número uno para capitales productivos en Argentina.</p>
+            <div class="hero-actions">
+                <a href="#contacto" class="btn-primary">Iniciar proceso de inversión</a>
+                <a href="#por-que" class="btn-secondary">Conocer más →</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-num">1<span>°</span></div>
+                    <div class="stat-label">Provincia en valor<br>agregado industrial per cápita</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">ZAL</div>
+                    <div class="stat-label">Hub logístico<br>intermodal modelo</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">100<span>%</span></div>
+                    <div class="stat-label">Fibra óptica en<br>todo el territorio</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="section why-section" id="por-que">
+        <div class="container">
+            <div class="why-header">
+                <span class="section-label">Por qué elegirnos</span>
+                <h2 class="section-title">Ventajas competitivas inigualables</h2>
+                <p class="section-lead">Ubicada estratégicamente en el corredor bioceánico, San Luis ofrece condiciones ideales para la radicación de grandes capitales.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🏭</div>
+                    <h3>Liderazgo Industrial</h3>
+                    <p>San Luis es la provincia número uno del país en producción de valor agregado per cápita industrial, con un tejido empresarial sólido y en constante expansión.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚖️</div>
+                    <h3>Estabilidad Institucional</h3>
+                    <p>Un entorno previsible con políticas públicas orientadas al desarrollo productivo y colaboración público-privada a largo plazo que genera confianza inversora.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛣️</div>
+                    <h3>Infraestructura Superior</h3>
+                    <p>Una extensa red de autopistas iluminadas y seguras que conectan eficientemente con los principales puertos del Mercosur, reduciendo costos logísticos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZAL -->
+    <section class="section zal-section" id="zal">
+        <div class="container">
+            <div class="zal-inner">
+                <div class="zal-visual">
+                    <div class="zal-box">
+                        <div class="zal-box-label">Villa Mercedes · San Luis</div>
+                        <h3>Zona de Actividades Logísticas</h3>
+                        <p>Un nodo logístico intermodal modelo en el país, diseñado para optimizar su cadena de suministro y reducir costos operativos.</p>
+                        <div class="zal-tags">
+                            <span class="zal-tag">Intermodal</span>
+                            <span class="zal-tag">Ferro-transferencia</span>
+                            <span class="zal-tag">Aduana propia</span>
+                            <span class="zal-tag">Agroindustria</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span class="section-label">Logística de Clase Mundial</span>
+                    <h2 class="section-title">La ZAL: su puerta al mundo</h2>
+                    <p class="section-lead">Optimice su cadena de suministro con infraestructura logística de primer nivel disponible hoy.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <div class="feature-icon">🚂</div>
+                            <div class="feature-content">
+                                <strong>Transferencia de Carga</strong>
+                                <span>Integración ágil entre transporte automotor y ferroviario (ferro-transferencia) para máxima eficiencia de distribución.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon">🛃</div>
+                            <div class="feature-content">
+                                <strong>Aduana y Comercio Exterior</strong>
+                                <span>Base aduanera propia en el predio (Zona Primaria Aduanera) para consolidación de cargas internacionales con agilidad.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon">🌾</div>
+                            <div class="feature-content">
+                                <strong>Agroindustria — Agrozal</strong>
+                                <span>Instalaciones especializadas para almacenamiento y acopio de granos con tecnología de punta.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH -->
+    <section class="section tech-section" id="tecnologia">
+        <div class="container">
+            <div class="tech-inner">
+                <div>
+                    <span class="section-label">Innovación & Conectividad</span>
+                    <h2 class="section-title" style="color:white;">El Hub Tecnológico de Sudamérica</h2>
+                    <p class="section-lead">San Luis entiende que el futuro de la industria es digital. Ofrecemos una infraestructura de telecomunicaciones única en la región.</p>
+                    <ul class="tech-list">
+                        <li>
+                            <div class="tech-num">01</div>
+                            <div class="tech-content">
+                                <strong>Autopista de la Información (AUI)</strong>
+                                <p>Conectividad de banda ancha mediante tendido de fibra óptica que cubre todo el territorio provincial sin excepción.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="tech-num">02</div>
+                            <div class="tech-content">
+                                <strong>Parque Informático La Punta (PILP)</strong>
+                                <p>Un espacio diseñado para la radicación de empresas de software y alta tecnología con beneficios exclusivos.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="tech-num">03</div>
+                            <div class="tech-content">
+                                <strong>Talento Humano de Primer Nivel</strong>
+                                <p>Formación a medida a través de la Universidad de La Punta (ULP) y la Universidad Provincial de Oficios (UPrO).</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="tech-cards">
+                        <div class="tech-card">
+                            <div class="tech-card-icon">🌐</div>
+                            <h4>Fibra óptica total</h4>
+                            <p>Cobertura provincial 100% garantizada</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-card-icon">💻</div>
+                            <h4>Parque Informático</h4>
+                            <p>Infraestructura para tech y software</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-card-icon">🎓</div>
+                            <h4>ULP & UPrO</h4>
+                            <p>Talento local formado a medida</p>
+                        </div>
+                        <div class="tech-card">
+                            <div class="tech-card-icon">🔗</div>
+                            <h4>Corredor Bioceánico</h4>
+                            <p>Conectividad estratégica continental</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INCENTIVOS -->
+    <section class="section incentives-section" id="incentivos">
+        <div class="container">
+            <div class="incentives-header">
+                <span class="section-label">Apoyo Financiero</span>
+                <h2 class="section-title">Incentivos para invertir</h2>
+                <p class="section-lead">El Gobierno de San Luis acompaña activamente a las empresas dispuestas a invertir, generar empleo e innovar.</p>
+            </div>
+            <div class="incentives-grid">
+                <div class="incentive-card">
+                    <div class="incentive-icon">💰</div>
+                    <h3>Financiamiento Estratégico</h3>
+                    <p>Articulación con el CFI para acceder a líneas de crédito con tasas mejoradas, facilitando el acceso a capital para proyectos productivos de toda escala.</p>
+                </div>
+                <div class="incentive-card featured">
+                    <div class="incentive-icon">🌿</div>
+                    <h3>Líneas Verdes</h3>
+                    <p>Incentivos especiales para proyectos de eficiencia hídrica, energías renovables y economía circular. San Luis apuesta por un futuro sostenible y rentable.</p>
+                </div>
+                <div class="incentive-card">
+                    <div class="incentive-icon">🚀</div>
+                    <h3>Gestión Ágil</h3>
+                    <p>Apoyo directo desde el Ministerio de Desarrollo Productivo en todo el proceso de radicación, agilizando trámites y acompañando cada etapa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contacto">
+        <div class="container">
+            <div class="contact-inner">
+                <div class="contact-info-card">
+                    <span class="section-label">Contáctese</span>
+                    <h2 class="section-title">Inicie su proceso de inversión hoy</h2>
+                    <p>Comuníquese con el Ministerio de Desarrollo Productivo y dé el primer paso hacia una inversión exitosa en San Luis.</p>
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">📍</div>
+                        <div class="contact-detail-text">
+                            <strong>Dirección</strong>
+                            <span>Autopista Serranías Puntanas, KM 783.<br>Edificio Oeste, Bloque 1, Piso 1, San Luis.</span>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">📧</div>
+                        <div class="contact-detail-text">
+                            <strong>Correo Oficial</strong>
+                            <a href="mailto:mindesarrolloprod@sanluis.gov.ar">mindesarrolloprod@sanluis.gov.ar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-links">
+                    <h2 class="contact-links-title">Enlaces Oficiales</h2>
+                    <p class="contact-links-sub">Consulte normativas, licitaciones y novedades en los canales oficiales del Gobierno de San Luis.</p>
+
+                    <a href="https://www.sanluis.gov.ar" target="_blank" class="link-item">
+                        <div class="link-icon">🏛️</div>
+                        <div class="link-text">
+                            <strong>Portal Oficial del Gobierno</strong>
+                            <span>sanluis.gov.ar</span>
+                        </div>
+                        <div class="link-arrow">→</div>
+                    </a>
+                    <a href="https://agenciasanluis.com" target="_blank" class="link-item">
+                        <div class="link-icon">📰</div>
+                        <div class="link-text">
+                            <strong>Agencia de Noticias San Luis</strong>
+                            <span>agenciasanluis.com</span>
+                        </div>
+                        <div class="link-arrow">→</div>
+                    </a>
+                    <a href="https://boletinoficial.sanluis.gov.ar" target="_blank" class="link-item">
+                        <div class="link-icon">📋</div>
+                        <div class="link-text">
+                            <strong>Boletín Oficial de la Provincia</strong>
+                            <span>boletinoficial.sanluis.gov.ar</span>
+                        </div>
+                        <div class="link-arrow">→</div>
+                    </a>
+                    <a href="https://ulp.edu.ar" target="_blank" class="link-item">
+                        <div class="link-icon">🎓</div>
+                        <div class="link-text">
+                            <strong>Universidad de La Punta (ULP)</strong>
+                            <span>ulp.edu.ar</span>
+                        </div>
+                        <div class="link-arrow">→</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">San Luis <span>Inversiones</span></div>
+            <p>© 2026 · Provincia de San Luis · Captación de Inversiones</p>
+            <p>Ministerio de Desarrollo Productivo</p>
+        </div>
+    </footer>
+
+</body>
+</html>
